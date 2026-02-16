@@ -1,0 +1,16 @@
+# Cached browser files
+images/(1) Instagram_files/
+images/(1) Instagram.html
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Editor
+.cursor/
+*.swp
+*.swo
+
+# SVG assets that are unused standalone
+sunny-outline.svg
+moon-outline.svg

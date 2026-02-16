@@ -1,0 +1,597 @@
+<!doctype html>
+<html class="scroll-smooth" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class'
+    }
+  </script>
+  <title>Oscar Soto | Software Developer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="bg-gray-950 dark:bg-stone-100/90 transition-colors duration-700 font-[Inter] relative min-h-screen overflow-x-hidden">
+
+  <!-- NAVBAR -->
+  <header class="fixed inset-x-4 top-6 z-50 lg:inset-x-6 max-w-3xl mx-auto">
+    <nav id="navbar" aria-label="Global"
+      class="flex items-center justify-between p-3 lg:px-4 bg-white/20 dark:bg-gray-800/20 backdrop-blur-md rounded-full shadow-lg transition-colors duration-700">
+      <div class="flex lg:flex-1">
+        <a href="#home" class="-m-1.5 p-1.5">
+          <span class="sr-only">Oscar Soto</span>
+          <img src="images/Oscar-Personal-Logo.png" alt="Oscar Soto Logo" class="h-10 w-auto" />
+        </a>
+      </div>
+      <div class="flex lg:hidden">
+        <button type="button" id="mobile-menu-open"
+          class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-zinc-200 dark:text-zinc-800">
+          <span class="sr-only">Open main menu</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"
+            class="size-6">
+            <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+      <div class="hidden lg:flex lg:gap-x-12">
+        <a href="#home"
+          class="text-lg font-semibold text-zinc-100 dark:text-zinc-800 hover:text-sky-400 dark:hover:text-sky-500 transition-colors duration-200">Home</a>
+        <a href="#stack"
+          class="text-lg font-semibold text-zinc-100 dark:text-zinc-800 hover:text-sky-400 dark:hover:text-sky-500 transition-colors duration-200">Stack</a>
+        <a href="#projects"
+          class="text-lg font-semibold text-zinc-100 dark:text-zinc-800 hover:text-sky-400 dark:hover:text-sky-500 transition-colors duration-200">Projects</a>
+        <a href="#contact"
+          class="text-lg font-semibold text-zinc-100 dark:text-zinc-800 hover:text-sky-400 dark:hover:text-sky-500 transition-colors duration-200">Contact</a>
+      </div>
+      <div class="hidden lg:flex lg:flex-1 lg:justify-end min-w-4">
+        <button id="theme-toggle"
+          class="text-sm/6 font-semibold text-zinc-300 dark:text-zinc-700 flex items-center justify-center gap-2 p-2 rounded-lg hover:bg-white/20 dark:hover:bg-black/10 transition-colors">
+          <ion-icon id="theme-icon" name="sunny-outline" class="text-2xl md:text-3xl"></ion-icon>
+        </button>
+      </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <dialog id="mobile-menu" class="lg:hidden">
+      <div class="flex h-full w-full flex-col overflow-y-auto bg-gray-900 dark:bg-stone-100 p-6">
+        <div class="flex items-center justify-end">
+          <button type="button" id="mobile-menu-close"
+            class="-m-2.5 rounded-md p-2.5 text-gray-200 dark:text-gray-800">
+            <span class="sr-only">Close menu</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"
+              class="size-6">
+              <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+        </div>
+        <div class="mt-6 flow-root">
+          <div class="-my-6 divide-y divide-white/10 dark:divide-gray-200/10">
+            <div class="space-y-2 py-6">
+              <a href="#home"
+                class="mobile-nav-link -mx-3 block rounded-lg px-3 py-2 text-lg font-semibold text-white dark:text-gray-900 hover:bg-white/5 dark:hover:bg-gray-900/5">Home</a>
+              <a href="#stack"
+                class="mobile-nav-link -mx-3 block rounded-lg px-3 py-2 text-lg font-semibold text-white dark:text-gray-900 hover:bg-white/5 dark:hover:bg-gray-900/5">Stack</a>
+              <a href="#projects"
+                class="mobile-nav-link -mx-3 block rounded-lg px-3 py-2 text-lg font-semibold text-white dark:text-gray-900 hover:bg-white/5 dark:hover:bg-gray-900/5">Projects</a>
+              <a href="#contact"
+                class="mobile-nav-link -mx-3 block rounded-lg px-3 py-2 text-lg font-semibold text-white dark:text-gray-900 hover:bg-white/5 dark:hover:bg-gray-900/5">Contact</a>
+            </div>
+            <div class="py-6">
+              <button id="theme-toggle-mobile"
+                class="-mx-3 rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white dark:text-gray-900 hover:bg-white/5 dark:hover:bg-gray-900/5 flex items-center gap-2"
+                aria-label="Toggle theme">
+                <ion-icon id="theme-icon-mobile" name="sunny-outline" class="text-xl"></ion-icon>
+                <span class="sr-only">Toggle theme</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </dialog>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="home"
+    class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center max-w-7xl mx-auto px-6 lg:px-8 pt-32 lg:pt-48 pb-16 lg:pb-24">
+    <div class="max-w-2xl z-10 pl-4 lg:pl-8">
+      <h1
+        class="text-4xl md:text-5xl font-semibold text-zinc-200 dark:text-zinc-700 tracking-tight mb-6 text-balance">
+        Hi there, I'm Oscar Soto
+        <span class="underline decoration-sky-400">Software Developer.</span>
+      </h1>
+      <p class="text-lg text-zinc-400 dark:text-zinc-600 mb-8 text-balance max-w-xl leading-relaxed">
+        I'm a developer with 10+ years of experience working as a freelance web designer. I have experience working
+        with small businesses helping them grow their businesses with client-friendly and engaging websites.
+      </p>
+      <ul class="flex flex-wrap gap-4">
+        <li>
+          <a href="#skills"
+            class="inline-block bg-sky-400 text-white font-medium px-6 py-2.5 rounded-lg hover:bg-sky-500 transition-colors duration-200">
+            Skills
+          </a>
+        </li>
+        <li>
+          <a href="assets/Oscar Soto Resume.pdf" target="_blank"
+            class="inline-flex items-center gap-2 bg-slate-500 dark:bg-slate-400 text-white dark:text-zinc-900 font-medium px-6 py-2.5 rounded-lg hover:bg-slate-600 dark:hover:bg-slate-500 transition-colors duration-200">
+            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+              fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-width="2"
+                d="M10 3v4a1 1 0 0 1-1 1H5m14-4v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z" />
+            </svg>
+            Download Resume
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="flex justify-center items-center mx-auto mt-8 lg:mt-0">
+      <img
+        class="w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 z-10 rounded-full object-cover shadow-2xl outline -outline-offset-1 outline-white/10 dark:outline-white/30 brightness-110 contrast-105 saturate-[1.15] hover:brightness-125 hover:saturate-[1.3] transition-all duration-500 ease-in-out"
+        src="images/NEW IMAGE POROFILE.png" alt="Oscar Soto Profile Picture" />
+    </div>
+  </section>
+
+  <hr class="max-w-[75%] mx-auto border-gray-800 dark:border-gray-300" />
+
+  <!-- STACK / ABOUT SECTION -->
+  <main>
+    <section id="stack" class="max-w-7xl mx-auto px-6 lg:px-8 py-20">
+      <div class="mx-auto max-w-2xl lg:text-center">
+        <h2
+          class="animate-appear mt-2 mb-4 text-4xl font-bold tracking-tight text-balance text-zinc-100 dark:text-zinc-700 sm:text-5xl">
+          Next comes what I'm passionate about</h2>
+        <p class="mt-4 text-lg text-zinc-400 dark:text-zinc-600 mb-4 text-pretty">
+          "I am a results-driven Full-Stack Developer specializing in the MERN stack, with a proven track record of
+          delivering real-world web solutions that balance aesthetics and performance. Driven by a continuous
+          learning mindset, I thrive on mastering new technologies to turn complex challenges into seamless,
+          professional user experiences."</p>
+      </div>
+
+      <!-- FEATURE CARDS GRID -->
+      <div class="animate-appear mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
+        <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
+
+          <div
+            class="animate-appear relative pl-16 bg-sky-900/15 hover:bg-sky-900/20 dark:bg-zinc-200/80 dark:hover:bg-zinc-200 rounded-lg p-4 shadow-md hover:shadow-lg transition duration-300">
+            <dt class="text-base/7 font-semibold tracking-tight text-pretty text-zinc-50 dark:text-zinc-700">
+              <div class="absolute top-3 left-2 flex size-10 items-center justify-center rounded-full">
+                <ion-icon class="size-6 text-sky-400" name="code-slash-outline"></ion-icon>
+              </div>
+              Full-Stack Web Development (MERN)
+            </dt>
+            <dd class="mt-2 text-base/7 text-zinc-400 dark:text-zinc-600">Strong foundation in JavaScript, HTML5,
+              CSS3, and the MERN stack (MongoDB, Express, React, Node.js) to build modern, scalable, and responsive
+              web applications.</dd>
+          </div>
+
+          <div
+            class="animate-appear relative pl-16 bg-sky-900/15 hover:bg-sky-900/20 dark:bg-zinc-200/80 dark:hover:bg-zinc-200 rounded-lg p-4 shadow-md hover:shadow-lg transition duration-300">
+            <dt class="text-base/7 font-semibold tracking-tight text-pretty text-zinc-50 dark:text-zinc-700">
+              <div class="absolute top-3 left-2 flex size-10 items-center justify-center rounded-full">
+                <ion-icon class="size-6 text-sky-400" name="earth-outline"></ion-icon>
+              </div>
+              Real-World Web Design & Development Experience
+            </dt>
+            <dd class="mt-2 text-base/7 text-zinc-400 dark:text-zinc-600">7+ years of hands-on experience delivering
+              production websites, focusing on usability, performance, SEO, and conversion-driven design.</dd>
+          </div>
+
+          <div
+            class="animate-appear relative pl-16 bg-sky-900/15 hover:bg-sky-900/20 dark:bg-zinc-200/80 dark:hover:bg-zinc-200 rounded-lg p-4 shadow-md hover:shadow-lg transition duration-300">
+            <dt class="text-base/7 font-semibold tracking-tight text-pretty text-zinc-50 dark:text-zinc-700">
+              <div class="absolute top-3 left-2 flex size-10 items-center justify-center rounded-full">
+                <ion-icon class="size-6 text-sky-400" name="extension-puzzle-outline"></ion-icon>
+              </div>
+              Problem-Solving & Clean Code Mindset
+            </dt>
+            <dd class="mt-2 text-base/7 text-zinc-400 dark:text-zinc-600">Ability to translate business requirements
+              into clean, maintainable code, with attention to performance, accessibility, and best practices.</dd>
+          </div>
+
+          <div
+            class="animate-appear relative pl-16 bg-sky-900/15 hover:bg-sky-900/20 dark:bg-zinc-200/80 dark:hover:bg-zinc-200 rounded-lg p-4 shadow-md hover:shadow-lg transition duration-300">
+            <dt class="text-base/7 font-semibold tracking-tight text-pretty text-zinc-50 dark:text-zinc-700">
+              <div class="absolute top-3 left-2 flex size-10 items-center justify-center rounded-full">
+                <ion-icon class="size-6 text-sky-400" name="flash-outline"></ion-icon>
+              </div>
+              Continuous Learning & Professional Training
+            </dt>
+            <dd class="mt-2 text-base/7 text-zinc-400 dark:text-zinc-600">Currently completing a Software Developer
+              bootcamp (UBC), strengthening backend logic, APIs, databases, and modern development workflows.</dd>
+          </div>
+
+        </dl>
+      </div>
+    </section>
+
+    <hr class="max-w-[75%] mx-auto border-gray-800 dark:border-gray-300" />
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="max-w-7xl mx-auto px-6 lg:px-8 py-20">
+      <div class="mx-auto max-w-2xl lg:text-center">
+        <h2
+          class="mt-2 mb-4 text-4xl font-bold tracking-tight text-balance text-zinc-100 dark:text-zinc-700 sm:text-5xl">
+          Skills</h2>
+        <p class="mt-4 text-lg text-zinc-400 dark:text-zinc-600 mb-4 text-pretty">
+          This is my stack of technologies and tools I use to build modern web applications.</p>
+      </div>
+      <div class="mx-auto mt-12 max-w-[450px]">
+        <div class="grid grid-cols-5 grid-rows-2 gap-3 items-center">
+          <div class="animate-appear shadow-md hover:shadow-lg transition duration-300 hover:scale-110 rounded">
+            <img src="images/Photoshop-logo.png" alt="Photoshop">
+          </div>
+          <div class="animate-appear shadow-md hover:shadow-lg transition duration-300 hover:scale-110 rounded">
+            <img src="images/Adobe_Illustrator_CC_icon.svg.png" alt="Illustrator">
+          </div>
+          <div class="animate-appear shadow-md hover:shadow-lg transition duration-300 hover:scale-110 rounded">
+            <img src="images/taildwind logo.png" alt="Tailwind CSS">
+          </div>
+          <div class="animate-appear shadow-md hover:shadow-lg transition duration-300 hover:scale-110 rounded">
+            <img src="images/Bootstrap logo.png" alt="Bootstrap">
+          </div>
+          <div class="animate-appear shadow-md hover:shadow-lg transition duration-300 hover:scale-110 rounded">
+            <img src="images/css logo.png" alt="CSS3">
+          </div>
+          <div class="animate-appear shadow-md hover:shadow-lg transition duration-300 hover:scale-110 rounded">
+            <img src="images/mongodb logo.png" alt="MongoDB">
+          </div>
+          <div class="animate-appear shadow-md hover:shadow-lg transition duration-300 hover:scale-110 rounded">
+            <img src="images/JavaScript-logo.png" alt="JavaScript">
+          </div>
+          <div class="animate-appear shadow-md hover:shadow-lg transition duration-300 hover:scale-110 rounded">
+            <img src="images/Python-logo.png" alt="Python">
+          </div>
+          <div class="animate-appear shadow-md hover:shadow-lg transition duration-300 hover:scale-110 rounded">
+            <img src="images/github.png" alt="GitHub">
+          </div>
+          <div class="animate-appear shadow-md hover:shadow-lg transition duration-300 hover:scale-110 rounded">
+            <img src="images/git.png" alt="Git">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="max-w-[75%] mx-auto border-gray-800 dark:border-gray-300" />
+
+    <!-- RESUME SECTION -->
+    <section id="resume" class="max-w-7xl mx-auto px-6 lg:px-8 py-20">
+      <div
+        class="grid grid-cols-1 lg:grid-cols-[minmax(400px,700px)_1fr] gap-10 items-start text-zinc-100 dark:text-zinc-700">
+
+        <!-- PRIMARY: Timeline -->
+        <div>
+          <h1 class="text-4xl font-bold mb-8 pl-4 lg:pl-8">
+            Software Developer
+          </h1>
+
+          <ol class="relative border-s border-zinc-700 dark:border-zinc-400 pl-8">
+
+            <!-- Timeline Item 1 -->
+            <li class="mb-10 ms-6">
+              <span
+                class="absolute flex items-center justify-center w-6 h-6 bg-sky-400/20 rounded-full -start-3 ring-2 ring-sky-400">
+                <svg class="w-3 h-3 text-sky-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+                  height="24" fill="none" viewBox="0 0 24 24">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Zm3-7h.01v.01H8V13Zm4 0h.01v.01H12V13Zm4 0h.01v.01H16V13Zm-8 4h.01v.01H8V17Zm4 0h.01v.01H12V17Zm4 0h.01v.01H16V17Z" />
+                </svg>
+              </span>
+              <time
+                class="inline-block mb-2 bg-white/10 dark:bg-zinc-200 border border-zinc-700/30 dark:border-zinc-300 text-zinc-300 dark:text-zinc-600 text-xs font-medium px-2 py-0.5 rounded">
+                March 13th, 2025
+              </time>
+              <h3 class="flex flex-wrap items-center gap-2 mb-2 text-lg font-semibold text-zinc-100 dark:text-zinc-700">
+                Software Development Bootcamp (in progress)
+                <span
+                  class="bg-sky-400/20 border border-sky-400/40 text-sky-400 dark:text-sky-600 text-xs font-medium px-1.5 py-0.5 rounded">Latest</span>
+              </h3>
+              <p class="mb-4 text-zinc-400 dark:text-zinc-600 leading-relaxed">An emerging Software Engineering
+                professional and highly experienced Web Developer with growing abilities around guiding the SDLC through
+                deploying, developing project management, testing, and coding capabilities, complemented by a soon to be
+                completed University of British Columbia certification in Software Development.</p>
+              <a href="assets/OSCAR SOTO GONZA'LEZ Resume.pdf" target="_blank"
+                class="inline-flex items-center gap-1.5 text-zinc-300 dark:text-zinc-600 bg-white/10 dark:bg-zinc-200 border border-zinc-700/30 dark:border-zinc-300 hover:bg-white/20 dark:hover:bg-zinc-300 font-medium text-sm px-4 py-2.5 rounded-lg transition-colors duration-200">
+                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                  fill="none" viewBox="0 0 24 24">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-width="2"
+                    d="M10 3v4a1 1 0 0 1-1 1H5m14-4v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z" />
+                </svg>
+                Download Resume
+              </a>
+            </li>
+
+            <!-- Timeline Item 2 -->
+            <li class="mb-10 ms-6">
+              <span
+                class="absolute flex items-center justify-center w-6 h-6 bg-sky-400/20 rounded-full -start-3 ring-2 ring-sky-400">
+                <svg class="w-3 h-3 text-sky-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+                  height="24" fill="none" viewBox="0 0 24 24">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Zm3-7h.01v.01H8V13Zm4 0h.01v.01H12V13Zm4 0h.01v.01H16V13Zm-8 4h.01v.01H8V17Zm4 0h.01v.01H12V17Zm4 0h.01v.01H16V17Z" />
+                </svg>
+              </span>
+              <time
+                class="inline-block mb-2 bg-white/10 dark:bg-zinc-200 border border-zinc-700/30 dark:border-zinc-300 text-zinc-300 dark:text-zinc-600 text-xs font-medium px-2 py-0.5 rounded">
+                January 09th, 2025
+              </time>
+              <h3 class="mb-2 text-lg font-semibold text-zinc-100 dark:text-zinc-700 leading-relaxed">
+                WEB ARTIST Courtenay, BC | Web Developer | 2018 - Present
+              </h3>
+              <p class="mb-3 text-zinc-400 dark:text-zinc-600 leading-relaxed">Web Development and graphics design
+                company working with a broad network of SMB clients across North and South America, where I
+                successfully:</p>
+              <ul class="space-y-2 text-zinc-400 dark:text-zinc-600 leading-relaxed">
+                <li class="flex gap-2"><span class="text-sky-400 shrink-0">&#8226;</span> Elicit client requirements to
+                  structure web solutions supporting revenue growth and brand awareness.</li>
+                <li class="flex gap-2"><span class="text-sky-400 shrink-0">&#8226;</span> Work with clients to build
+                  User Stories and ideal customer avatars to guide the design process.</li>
+                <li class="flex gap-2"><span class="text-sky-400 shrink-0">&#8226;</span> Engineer end-to-end SEO
+                  strategies, increasing organic reach and search rankings.</li>
+                <li class="flex gap-2"><span class="text-sky-400 shrink-0">&#8226;</span> Develop UX strategies by
+                  researching and identifying problems through stakeholder interviews.</li>
+                <li class="flex gap-2"><span class="text-sky-400 shrink-0">&#8226;</span> Establish clients' branding
+                  direction and tone for social media, website and print initiatives.</li>
+                <li class="flex gap-2"><span class="text-sky-400 shrink-0">&#8226;</span> Deploy extensive data
+                  analytics to track and fine-tune campaigns and site design.</li>
+                <li class="flex gap-2"><span class="text-sky-400 shrink-0">&#8226;</span> Perform testing to support
+                  functionality and usability and resolve identified bugs.</li>
+                <li class="flex gap-2"><span class="text-sky-400 shrink-0">&#8226;</span> Curate and analyze data
+                  analytics to uncover actionable customer and visitor insights, informing data-driven marketing
+                  decisions.</li>
+              </ul>
+            </li>
+
+            <!-- Timeline Item 3 -->
+            <li class="ms-6">
+              <span
+                class="absolute flex items-center justify-center w-6 h-6 bg-sky-400/20 rounded-full -start-3 ring-2 ring-sky-400">
+                <svg class="w-3 h-3 text-sky-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+                  height="24" fill="none" viewBox="0 0 24 24">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Zm3-7h.01v.01H8V13Zm4 0h.01v.01H12V13Zm4 0h.01v.01H16V13Zm-8 4h.01v.01H8V17Zm4 0h.01v.01H12V17Zm4 0h.01v.01H16V17Z" />
+                </svg>
+              </span>
+              <time
+                class="inline-block mb-2 bg-white/10 dark:bg-zinc-200 border border-zinc-700/30 dark:border-zinc-300 text-zinc-300 dark:text-zinc-600 text-xs font-medium px-2 py-0.5 rounded">
+                October 2015 - 2017
+              </time>
+              <h3 class="mb-2 text-lg font-semibold text-zinc-100 dark:text-zinc-700">Tlaquepaque, Mexico | Graphic
+                Designer</h3>
+              <p class="mb-3 text-zinc-400 dark:text-zinc-600 leading-relaxed">One of Mexico's premier distributors of
+                domestic and imported automotive parts, representing global brands including Champion, Autopar Drive
+                Train, Continental and Lodi where I seamlessly:</p>
+              <ul class="space-y-2 text-zinc-400 dark:text-zinc-600 leading-relaxed">
+                <li class="flex gap-2"><span class="text-sky-400 shrink-0">&#8226;</span> Led internal team interviews
+                  to determine requirements and understand project goals.</li>
+                <li class="flex gap-2"><span class="text-sky-400 shrink-0">&#8226;</span> Partnered with 3rd party
+                  creatives, illustrators, writers and designers to create digital and print demand generation-focused
+                  campaigns.</li>
+                <li class="flex gap-2"><span class="text-sky-400 shrink-0">&#8226;</span> Managed project typography and
+                  illustration development, creating brand building and market expansion-focused visual imagery and
+                  logos.</li>
+                <li class="flex gap-2"><span class="text-sky-400 shrink-0">&#8226;</span> Refined RA's core key brand
+                  messaging, translating KPIs into engaging visual content and collateral.</li>
+                <li class="flex gap-2"><span class="text-sky-400 shrink-0">&#8226;</span> Developed artwork for the
+                  marketing team's review and prepared layouts for print and digital publication.</li>
+              </ul>
+            </li>
+
+          </ol>
+        </div>
+
+        <!-- SIDEBAR: Courses -->
+        <aside
+          class="animate-appear bg-sky-900/15 hover:bg-sky-900/20 dark:bg-zinc-200/80 dark:hover:bg-zinc-200 rounded-lg p-8 shadow-md hover:shadow-lg transition duration-300 lg:sticky lg:top-24">
+          <h2
+            class="text-3xl font-bold tracking-normal text-zinc-100 dark:text-zinc-700 text-center mb-4 sm:text-4xl">
+            Courses Taken
+          </h2>
+          <p class="text-lg text-zinc-400 dark:text-zinc-600 mb-6 text-pretty text-center">
+            Here are some of the courses I've completed to strengthen my skills and deepen my knowledge in software
+            development.
+          </p>
+          <div class="flex flex-wrap gap-2 justify-center">
+            <kbd
+              class="rounded-lg px-3 py-1.5 text-sm font-semibold text-zinc-200 dark:text-zinc-700 bg-white/10 dark:bg-zinc-300/60 border border-zinc-700/30 dark:border-zinc-300 shadow-sm hover:shadow-md transition duration-200">
+              Agile & Scrum</kbd>
+            <kbd
+              class="rounded-lg px-3 py-1.5 text-sm font-semibold text-zinc-200 dark:text-zinc-700 bg-white/10 dark:bg-zinc-300/60 border border-zinc-700/30 dark:border-zinc-300 shadow-sm hover:shadow-md transition duration-200">
+              SEO</kbd>
+            <kbd
+              class="rounded-lg px-3 py-1.5 text-sm font-semibold text-zinc-200 dark:text-zinc-700 bg-white/10 dark:bg-zinc-300/60 border border-zinc-700/30 dark:border-zinc-300 shadow-sm hover:shadow-md transition duration-200 whitespace-nowrap">
+              Modern JavaScript</kbd>
+            <kbd
+              class="rounded-lg px-3 py-1.5 text-sm font-semibold text-zinc-200 dark:text-zinc-700 bg-white/10 dark:bg-zinc-300/60 border border-zinc-700/30 dark:border-zinc-300 shadow-sm hover:shadow-md transition duration-200 whitespace-nowrap">
+              UI / UX Design</kbd>
+            <kbd
+              class="rounded-lg px-3 py-1.5 text-sm font-semibold text-zinc-200 dark:text-zinc-700 bg-white/10 dark:bg-zinc-300/60 border border-zinc-700/30 dark:border-zinc-300 shadow-sm hover:shadow-md transition duration-200 whitespace-nowrap">
+              Typography for Web Design</kbd>
+            <kbd
+              class="rounded-lg px-3 py-1.5 text-sm font-semibold text-zinc-200 dark:text-zinc-700 bg-white/10 dark:bg-zinc-300/60 border border-zinc-700/30 dark:border-zinc-300 shadow-sm hover:shadow-md transition duration-200 whitespace-nowrap">
+              Photoshop Impact Design</kbd>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+    <hr class="max-w-[75%] mx-auto border-gray-800 dark:border-gray-300" />
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="max-w-7xl mx-auto px-6 lg:px-8 py-20">
+      <h1 class="text-4xl font-bold mb-12 text-zinc-100 dark:text-zinc-700 pl-4 lg:pl-8">
+        Projects
+      </h1>
+
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-3 items-start text-zinc-100 dark:text-zinc-700">
+
+        <!-- Project Card 1 -->
+        <div class="px-2 py-4">
+          <div class="mx-auto flex max-w-[300px] flex-col gap-y-2">
+            <div
+              class="rounded-lg bg-white/15 p-2 outline -outline-offset-1 outline-white/25 shadow-lg shadow-black/20">
+              <img
+                class="aspect-5/6 w-full rounded-lg bg-gray-800 object-cover shadow-2xl outline -outline-offset-1 outline-white/10"
+                src="images/website for septic vancouver island.png" alt="Septic Vancouver Island Website" />
+            </div>
+            <figure class="relative isolate pt-6">
+              <blockquote class="text-base text-zinc-400 dark:text-zinc-600 text-pretty leading-relaxed">
+                <p>Developed a high-conversion website featuring an integrated booking engine with automated SMS/Email
+                  notifications for both clients and staff. Executed a full SEO strategy, custom logo design, and Google
+                  Business verification to maximize local search visibility.</p>
+              </blockquote>
+              <figcaption class="mt-6 text-base text-left">
+                <div class="font-semibold text-white dark:text-zinc-800">WordPress Development & Brand Identity</div>
+                <div class="mt-1 text-gray-400 dark:text-zinc-500">Web Design Project</div>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <!-- Project Card 2 -->
+        <div class="px-2 py-4">
+          <div class="mx-auto flex max-w-[300px] flex-col gap-y-2">
+            <div
+              class="rounded-lg bg-white/15 p-2 outline -outline-offset-1 outline-white/25 shadow-lg shadow-black/20">
+              <img
+                class="aspect-5/6 w-full rounded-lg bg-gray-800 object-cover shadow-2xl outline -outline-offset-1 outline-white/10"
+                src="images/Ticket Project.png" alt="Conference Ticket Generator" />
+            </div>
+            <figure class="relative isolate pt-6">
+              <blockquote class="text-base text-zinc-400 dark:text-zinc-600 text-pretty leading-relaxed">
+                <p>Dynamic Conference Ticket Generator | HTML5, CSS3, Vanilla JS. An accessible, mobile-first web
+                  application that generates personalized conference tickets in real-time. This project demonstrates
+                  advanced client-side form validation and a commitment to inclusive design, ensuring a seamless
+                  experience for keyboard and screen-reader users alike.</p>
+              </blockquote>
+              <figcaption class="mt-6 text-base text-left">
+                <div class="font-semibold text-white dark:text-zinc-800">Accessible Ticket Platform (Vanilla
+                  JavaScript)</div>
+                <div class="mt-1 text-gray-400 dark:text-zinc-500">Web Development Project</div>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <!-- Project Card 3 -->
+        <div class="px-2 py-4">
+          <div class="mx-auto flex max-w-[300px] flex-col gap-y-2">
+            <div
+              class="rounded-lg bg-white/15 p-2 outline -outline-offset-1 outline-white/25 shadow-lg shadow-black/20">
+              <img
+                class="aspect-5/6 w-full rounded-lg bg-gray-800 object-cover shadow-2xl outline -outline-offset-1 outline-white/10"
+                src="images/Ticket Project.png" alt="Project screenshot" />
+            </div>
+            <figure class="relative isolate pt-6">
+              <blockquote class="text-base text-zinc-400 dark:text-zinc-600 text-pretty leading-relaxed">
+                <p>Next Project Coming Soon</p>
+              </blockquote>
+              <figcaption class="mt-6 text-base text-left">
+                <div class="font-semibold text-white dark:text-zinc-800">Judith Black</div>
+                <div class="mt-1 text-gray-400 dark:text-zinc-500">CEO of Workcation</div>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <hr class="max-w-[75%] mx-auto border-gray-800 dark:border-gray-300" />
+  </main>
+
+  <!-- FOOTER / CONTACT -->
+  <footer id="contact" class="py-16">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <p class="text-center text-sm text-gray-400 dark:text-zinc-500">&copy; 2025 Oscar Soto. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+    const themeIconMobile = document.getElementById('theme-icon-mobile');
+    const htmlElement = document.documentElement;
+
+    const currentTheme = localStorage.getItem('theme') || 'light';
+
+    function applyTheme(theme) {
+      if (theme === 'dark') {
+        htmlElement.classList.add('dark');
+        if (themeIcon) themeIcon.setAttribute('name', 'moon-outline');
+        if (themeIconMobile) themeIconMobile.setAttribute('name', 'moon-outline');
+      } else {
+        htmlElement.classList.remove('dark');
+        if (themeIcon) themeIcon.setAttribute('name', 'sunny-outline');
+        if (themeIconMobile) themeIconMobile.setAttribute('name', 'sunny-outline');
+      }
+    }
+
+    applyTheme(currentTheme);
+
+    function toggleTheme() {
+      const isDark = htmlElement.classList.contains('dark');
+      const next = isDark ? 'light' : 'dark';
+      applyTheme(next);
+      localStorage.setItem('theme', next);
+    }
+
+    if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+    if (themeToggleMobile) themeToggleMobile.addEventListener('click', toggleTheme);
+
+    // Mobile menu open/close with slide animation
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuOpen = document.getElementById('mobile-menu-open');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+
+    function openMobileMenu() {
+      mobileMenu.classList.remove('closing');
+      mobileMenu.showModal();
+    }
+
+    function closeMobileMenu() {
+      mobileMenu.classList.add('closing');
+      mobileMenu.addEventListener('animationend', function handler() {
+        mobileMenu.classList.remove('closing');
+        mobileMenu.close();
+        mobileMenu.removeEventListener('animationend', handler);
+      });
+    }
+
+    if (mobileMenuOpen) mobileMenuOpen.addEventListener('click', openMobileMenu);
+    if (mobileMenuClose) mobileMenuClose.addEventListener('click', closeMobileMenu);
+
+    mobileMenu.addEventListener('click', function (e) {
+      if (e.target === mobileMenu) closeMobileMenu();
+    });
+
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', closeMobileMenu);
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>
