@@ -74,6 +74,102 @@ body {
   animation-range: entry 15% 50%;
 }
 
+/* Hero image glitch effect */
+.hero-glitch-wrapper {
+  cursor: pointer;
+}
+
+.hero-glitch-layer {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+/* Glitch triggers: hover on desktop, .glitch-active class on mobile tap */
+.hero-glitch-wrapper:hover .hero-glitch-img,
+.hero-glitch-wrapper.glitch-active .hero-glitch-img {
+  animation: glitchMain 0.4s steps(2) infinite;
+}
+
+.hero-glitch-wrapper:hover .hero-glitch-r,
+.hero-glitch-wrapper.glitch-active .hero-glitch-r {
+  opacity: 0.6;
+  animation: glitchR 0.3s steps(2) infinite;
+}
+
+.hero-glitch-wrapper:hover .hero-glitch-b,
+.hero-glitch-wrapper.glitch-active .hero-glitch-b {
+  opacity: 0.6;
+  animation: glitchB 0.3s steps(3) infinite reverse;
+}
+
+/* Subtle breathing pulse on touch devices when not tapping */
+@media (hover: none) {
+  .hero-glitch-wrapper:not(.glitch-active) .hero-glitch-img {
+    animation: heroPulse 3s ease-in-out infinite;
+  }
+}
+
+@keyframes heroPulse {
+  0%, 100% {
+    filter: brightness(1.1) contrast(1.05) saturate(1.15);
+    transform: scale(1);
+  }
+  50% {
+    filter: brightness(1.25) contrast(1.1) saturate(1.3);
+    transform: scale(1.03);
+  }
+}
+
+@keyframes glitchMain {
+  0% {
+    transform: translate(0);
+    filter: brightness(1.1) contrast(1.05) saturate(1.15);
+  }
+  20% {
+    transform: translate(-3px, 2px);
+    filter: brightness(1.3) contrast(1.2) saturate(1.4);
+  }
+  40% {
+    transform: translate(2px, -1px);
+    filter: brightness(1.1) contrast(1.05) saturate(1.15);
+  }
+  60% {
+    transform: translate(-1px, -2px);
+    filter: brightness(1.4) contrast(1.1) saturate(1.3);
+  }
+  80% {
+    transform: translate(3px, 1px);
+    filter: brightness(1.1) contrast(1.05) saturate(1.15);
+  }
+  100% {
+    transform: translate(0);
+    filter: brightness(1.1) contrast(1.05) saturate(1.15);
+  }
+}
+
+@keyframes glitchR {
+  0%   { transform: translate(0); clip-path: inset(15% 0 60% 0); }
+  20%  { transform: translate(6px, -2px); clip-path: inset(40% 0 20% 0); }
+  40%  { transform: translate(-4px, 3px); clip-path: inset(70% 0 5% 0); }
+  60%  { transform: translate(5px, -1px); clip-path: inset(10% 0 75% 0); }
+  80%  { transform: translate(-3px, 2px); clip-path: inset(50% 0 30% 0); }
+  100% { transform: translate(0); clip-path: inset(25% 0 55% 0); }
+}
+
+@keyframes glitchB {
+  0%   { transform: translate(0); clip-path: inset(60% 0 10% 0); }
+  20%  { transform: translate(-5px, 2px); clip-path: inset(20% 0 50% 0); }
+  40%  { transform: translate(3px, -3px); clip-path: inset(5% 0 80% 0); }
+  60%  { transform: translate(-4px, 1px); clip-path: inset(45% 0 25% 0); }
+  80%  { transform: translate(6px, -2px); clip-path: inset(75% 0 10% 0); }
+  100% { transform: translate(0); clip-path: inset(35% 0 45% 0); }
+}
+
 /* Mobile menu slide-in */
 @keyframes slideInFromRight {
   from {
