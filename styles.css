@@ -170,6 +170,33 @@ body {
   100% { transform: translate(0); clip-path: inset(35% 0 45% 0); }
 }
 
+/* Project card image/video toggle */
+.project-play-hint {
+  opacity: 0;
+}
+
+.project-media:hover .project-play-hint {
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .project-play-hint {
+    opacity: 1;
+  }
+}
+
+.project-media.playing .project-img {
+  opacity: 0;
+}
+
+.project-media.playing .project-video {
+  opacity: 1;
+}
+
+.project-media.playing .project-play-hint {
+  opacity: 0 !important;
+}
+
 /* Mobile menu slide-in */
 @keyframes slideInFromRight {
   from {
